@@ -2,11 +2,11 @@ import type { BackgroundWallpaperConfig } from "@/types/backgroundWallpaper";
 
 export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	// 壁纸模式："banner" 横幅壁纸，"fullscreen" 全屏壁纸，"overlay" 全屏透明，"none" 纯色背景无壁纸
-	mode: "banner",
+	mode: "overlay",
 	// 是否允许用户通过导航栏切换壁纸模式
 	// 且同时维护多种壁纸模式过于复杂（已经屎山代码），在切换时有时候可能会出现一些奇怪的过渡效果或者bug
 	// 推荐只选择自己喜欢的模式并关闭切换功能
-	switchable: true,
+	switchable: false,
 	// 是否启用背景视频播放，配置后将在导航栏显示视频播放按钮
 	playerEnable: true,
 	/**
@@ -164,18 +164,18 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	overlay: {
 		// 是否允许用户通过控制面板调整全屏透明模式参数
 		switchable: {
-			opacity: true,
-			blur: true,
-			cardOpacity: true,
+			opacity: false,
+			blur: false,
+			cardOpacity: false,
 		},
 		// 层级，确保壁纸在背景层
 		zIndex: -1,
 		// 壁纸透明度
-		opacity: 0.8,
+		opacity: 0.78,
 		// 背景模糊度
-		blur: 10,
+		blur: 5,
 		// 卡片透明度，0-1之间，值越小越透明
-		cardOpacity: 0.5,
+		cardOpacity: 0.86,
 	},
 	// 全屏壁纸模式特有配置
 	fullscreen: {
