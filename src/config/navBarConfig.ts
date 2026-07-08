@@ -22,8 +22,16 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:article",
 		children: [
-			// 分类
+			// 全部分类
 			LinkPresets.Categories,
+
+			// 六个分类直达
+			{ name: "网站搭建", url: "/archive/?category=%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA", icon: "material-symbols:folder-outline" },
+			{ name: "技术分享", url: "/archive/?category=%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB", icon: "material-symbols:folder-outline" },
+			{ name: "资源推荐", url: "/archive/?category=%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90", icon: "material-symbols:folder-outline" },
+			{ name: "AI 工具", url: "/archive/?category=AI%20%E5%B7%A5%E5%85%B7", icon: "material-symbols:folder-outline" },
+			{ name: "VPS 与服务器", url: "/archive/?category=VPS%20%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8", icon: "material-symbols:folder-outline" },
+			{ name: "折腾日记", url: "/archive/?category=%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0", icon: "material-symbols:folder-outline" },
 
 			// 标签
 			LinkPresets.Tags,
