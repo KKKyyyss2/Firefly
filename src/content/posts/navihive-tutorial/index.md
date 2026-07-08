@@ -82,13 +82,5 @@ INSERT INTO configs (key, value) VALUES ('DB_INITIALIZED', 'true');
 
 全部执行成功后，访问你的导航站首页，用配置的管理员账号登录即可管理。
 
-## 视频教程
-
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0">
-  <a href="https://youtu.be/LSOG1n8T6cc" target="_blank" style="background:#FF0000;color:#fff;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;font-weight:bold">📺 YouTube 教程</a>
-  <a href="https://b23.tv/XvD29uI" target="_blank" style="background:#FB7299;color:#fff;padding:0.5rem 1rem;border-radius:8px;text-decoration:none;font-weight:bold">📺 哔哩哔哩教程</a>
-</div>
-
-## 总结
 
 NaviHive + Cloudflare Workers = 零成本、全球加速、免维护的个人导航站。几分钟搞定，以后再也不用手动整理书签了。
