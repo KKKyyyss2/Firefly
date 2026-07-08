@@ -259,18 +259,7 @@ const visibleTags =
             {i18n(I18nKey.pageViewsLoading)}
           </span>
         </div>
-        <script>
-          (async () => {
-            var slug = window.location.pathname;
-            try {
-              var res = await fetch("/api/counter?slug=" + encodeURIComponent(slug), { method: "POST" });
-              var data = await res.json();
-              document.getElementById("kv_visitors").textContent = data.count;
-            } catch {
-              document.getElementById("kv_visitors").textContent = "-";
-            }
-          })();
-        </script>
+        <script src="/assets/js/counter.js" is:inline></script>
       </>
     )
   }
