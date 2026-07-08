@@ -132,10 +132,6 @@ https://github.com/umami-software/umami
 
 在 Vercel 项目设置 → **Domains** → 添加你自己的域名。国内访问慢的话可以套一层 Cloudflare CDN。
 
-## 视频教程
-
-- YouTube：[https://youtu.be/29smYzsiYYA](https://youtu.be/29smYzsiYYA)
-- 哔哩哔哩：[https://b23.tv/08CAkBx](https://b23.tv/08CAkBx)
 
 ## 总结
 
