@@ -240,4 +240,38 @@ const visibleTags =
         </div>
       )
   }
+
+  {
+    !isHome && id && (
+      <>
+        <div class="flex items-center">
+          <div class="meta-icon">
+            <Icon
+              is:inline
+              name="material-symbols:visibility-outline-rounded"
+              class="text-xl"
+            />
+          </div>
+          <span class="text-50 text-sm font-medium mr-1">
+            {i18n(I18nKey.pageViews)}
+          </span>
+          <span class="text-50 text-sm font-medium" id="kv_visitors">
+            {i18n(I18nKey.pageViewsLoading)}
+          </span>
+        </div>
+        <script>
+          (async () => {
+            const slug = window.location.pathname;
+            try {
+              const res = await fetch(`/api/counter?slug=${encodeURIComponent(slug)}`, { method: "POST" });
+              const data = await res.json();
+              document.getElementById("kv_visitors").textContent = data.count;
+            } catch {
+              document.getElementById("kv_visitors").textContent = "-";
+            }
+          })();
+        </script>
+      </>
+    )
+  }
 </div>

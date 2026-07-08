@@ -6,5 +6,8 @@
     "assets": {
         "directory": "./dist",
         "binding": "ASSETS"
-    }
+    },
+    "kv_namespaces": [
+        { "binding": "COUNTER", "id": "0b72b7bc5fb640fd897914185e977642" }
+    ]
 }
