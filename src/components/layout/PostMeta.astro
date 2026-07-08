@@ -261,10 +261,10 @@ const visibleTags =
         </div>
         <script>
           (async () => {
-            const slug = window.location.pathname;
+            var slug = window.location.pathname;
             try {
-              const res = await fetch(`/api/counter?slug=${encodeURIComponent(slug)}`, { method: "POST" });
-              const data = await res.json();
+              var res = await fetch("/api/counter?slug=" + encodeURIComponent(slug), { method: "POST" });
+              var data = await res.json();
               document.getElementById("kv_visitors").textContent = data.count;
             } catch {
               document.getElementById("kv_visitors").textContent = "-";
