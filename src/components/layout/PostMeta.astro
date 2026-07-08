@@ -242,8 +242,8 @@ const visibleTags =
   }
 
   {
-    !isHome && id && (
-      <>
+    id && (
+      <div data-counter-slug={path}>
         <div class="flex items-center">
           <div class="meta-icon">
             <Icon
@@ -259,8 +259,7 @@ const visibleTags =
             {i18n(I18nKey.pageViewsLoading)}
           </span>
         </div>
-        <script src="/assets/js/counter.js" is:inline></script>
-      </>
+      </div>
     )
   }
 </div>
