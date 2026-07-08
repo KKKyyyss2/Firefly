@@ -14,14 +14,12 @@ const { currentPostCategory } = Astro.props as Props;
 const categories = await getCategoryList();
 const totalPosts = (await getSortedPostsList()).length;
 const homeUrl = url("/");
-const archiveUrl = url("/archive/");
 ---
 
 <div
   class="card-base category-bar p-3 onload-animation"
   id="category-bar"
   data-home-path={homeUrl}
-  data-archive-path={archiveUrl}
   data-current-post-category={currentPostCategory || ""}
 >
   <div class="category-bar-inner flex gap-2">
@@ -34,16 +32,6 @@ const archiveUrl = url("/archive/");
     >
       <Icon is:inline name="material-symbols:home" class="text-lg" />
     </a>
-    <a
-      href={archiveUrl}
-      class="category-pill text-sm px-4 py-1.5 rounded-xl whitespace-nowrap shrink-0
-             transition-colors duration-150 ease-out flex items-center justify-center"
-      data-category-name="__archive__"
-    >
-      {i18n(I18nKey.archive)}
-      <span class="pill-count">{totalPosts}</span>
-    </a>
-    <div class="category-divider shrink-0"></div>
     <div class="scroll-area relative">
       <div class="scroll-fade scroll-fade-left" aria-hidden="true"></div>
       <div class="category-scroll flex gap-2 overflow-x-auto">
@@ -192,14 +180,11 @@ const archiveUrl = url("/archive/");
   function getCategoryBarState(bar: HTMLElement, currentUrl: URL) {
     const pathname = currentUrl.pathname.replace(/\/$/, "");
     const homePath = (bar.getAttribute("data-home-path") || "/").replace(/\/$/, "");
-    const archivePath = (bar.getAttribute("data-archive-path") || "/archive").replace(/\/$/, "");
     const isHome = pathname === homePath || pathname === "" || pathname === "/";
-    const isArchive = pathname === archivePath;
     const isCategories = pathname === "/categories";
 
     return {
       isHome,
-      isArchive,
       isCategories,
       activeCategory: currentUrl.searchParams.get("category") || "",
       hasTag: currentUrl.searchParams.has("tag"),
@@ -208,7 +193,7 @@ const archiveUrl = url("/archive/");
   }
 
   function setActiveCategory(bar: HTMLElement, currentUrl: URL) {
-    const { isHome, isArchive, isCategories, activeCategory, hasTag, hasUncategorized } =
+    const { isHome, isCategories, activeCategory, hasTag, hasUncategorized } =
       getCategoryBarState(bar, currentUrl);
     const postCategory = (bar.getAttribute("data-current-post-category") || "").trim();
 
@@ -236,12 +221,6 @@ const archiveUrl = url("/archive/");
           pill.setAttribute("data-active", "");
         }
       });
-      return;
-    }
-
-    if (isArchive && !hasTag && !hasUncategorized) {
-      bar.querySelector<HTMLAnchorElement>('.category-pill[data-category-name="__archive__"]')
-        ?.setAttribute("data-active", "");
       return;
     }
 
